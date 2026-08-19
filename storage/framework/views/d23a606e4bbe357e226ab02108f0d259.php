@@ -1,0 +1,2 @@
+<i data-lucide="home" <?php echo e($attributes->merge(['class' => 'w-7 h-7'])); ?>></i>
+<?php /**PATH C:\Users\david\Downloads\web-rw12\web-rw12\web-rw12\resources\views\components\application-logo.blade.php ENDPATH**/ ?>

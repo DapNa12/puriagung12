@@ -1,0 +1,64 @@
+@extends('layouts.admin')
+
+@section('title', 'Tambah User')
+
+@section('content')
+<div class="max-w-2xl mx-auto">
+    <div class="mb-6 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-slate-900">Tambah User Baru</h1>
+        <a href="{{ route('admin.users.index') }}" class="btn-secondary">Kembali</a>
+    </div>
+
+    <div class="bg-white rounded-2xl border border-slate-200 p-6">
+        <form method="POST" action="{{ route('admin.users.store') }}" class="space-y-5">
+            @csrf
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Nama Lengkap</label>
+                <input type="text" name="name" value="{{ old('name') }}" required class="input-field @error('name') input-error @enderror">
+                @error('name') <p class="text-xs text-red-500 mt-1">{{ $message }}</p> @enderror
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                <input type="email" name="email" value="{{ old('email') }}" required class="input-field @error('email') input-error @enderror">
+                @error('email') <p class="text-xs text-red-500 mt-1">{{ $message }}</p> @enderror
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Password</label>
+                    <input type="password" name="password" required class="input-field @error('password') input-error @enderror">
+                    @error('password') <p class="text-xs text-red-500 mt-1">{{ $message }}</p> @enderror
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Konfirmasi Password</label>
+                    <input type="password" name="password_confirmation" required class="input-field">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Role / Hak Akses</label>
+                    <select name="role" required class="input-field">
+                        <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+                        <option value="sekretaris" {{ old('role') == 'sekretaris' ? 'selected' : '' }}>Sekretaris</option>
+                        <option value="ketua_rw" {{ old('role') == 'ketua_rw' ? 'selected' : '' }}>Ketua RW</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Status Akun</label>
+                    <select name="is_active" required class="input-field">
+                        <option value="1" {{ old('is_active', '1') == '1' ? 'selected' : '' }}>Aktif</option>
+                        <option value="0" {{ old('is_active') == '0' ? 'selected' : '' }}>Non-Aktif</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-100 flex justify-end gap-3">
+                <a href="{{ route('admin.users.index') }}" class="btn-secondary">Batal</a>
+                <button type="submit" class="btn-primary">Simpan User</button>
+            </div>
+        </form>
+    </div>
+</div>
+@endsection
