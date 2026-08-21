@@ -428,7 +428,7 @@
         </div>
         <div class="border-t border-slate-100">
             <div class="max-w-7xl mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-400">
-                <p>&copy; {{ date('Y') }} RW12. All rights reserved.</p>
+                <p>&copy; {{ date('Y') }} RW12. Dikembangkan oleh KKN UYM Gelam Jaya 1</p>
                 <a href="https://wa.me/62895611487628" target="_blank" rel="noopener noreferrer" class="hover:text-rose-600 transition-colors">Hubungi Kami</a>
             </div>
         </div>
