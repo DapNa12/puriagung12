@@ -35,9 +35,4 @@ class GaleriAlbum extends Model
     {
         return $this->fotos->first()?->foto;
     }
-
-    public function getCoverFotoAttribute(): ?GaleriFoto
-    {
-        return $this->fotos->first();
-    }
 }

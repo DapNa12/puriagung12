@@ -121,6 +121,10 @@ html.sb-collapsed #sidebar .user-actions button { width: 2.75rem; height: 2.75re
                 <i data-lucide="settings" class="w-5 h-5 flex-shrink-0"></i>
                 <span>Pengurus RW</span>
             </a>
+            <a href="{{ route('admin.organisasi.index') }}" class="sidebar-link {{ request()->routeIs('admin.organisasi*') ? 'active' : '' }}" data-title="Organisasi">
+                <i data-lucide="building" class="w-5 h-5 flex-shrink-0"></i>
+                <span>Organisasi</span>
+            </a>
             <a href="{{ route('admin.umkm.index') }}" class="sidebar-link {{ request()->routeIs('admin.umkm*') ? 'active' : '' }}" data-title="UMKM">
                 <i data-lucide="store" class="w-5 h-5 flex-shrink-0"></i>
                 <span>UMKM</span>

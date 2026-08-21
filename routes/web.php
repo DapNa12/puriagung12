@@ -37,6 +37,7 @@ Route::get('/pengurus-rt', [PublicController::class, 'pengurusRt'])->name('pengu
 
 Route::get('/profil', [PublicController::class, 'profil'])->name('profil');
 Route::get('/struktur-rw', [PublicController::class, 'strukturRw'])->name('struktur-rw');
+Route::get('/struktur-organisasi', [PublicController::class, 'strukturOrganisasi'])->name('struktur-organisasi');
 Route::get('/statistik', [PublicController::class, 'statistik'])->name('statistik');
 Route::get('/umkm', [PublicController::class, 'umkm'])->name('umkm');
 Route::get('/umkm/{umkm:slug}', [PublicController::class, 'umkmShow'])->name('umkm.show');
@@ -52,6 +53,7 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'check.admin'])->group(f
     Route::middleware('check.role:admin,sekretaris')->group(function () {
         Route::get('/berita', [BeritaController::class, 'index'])->name('admin.berita.index');
         Route::resource('/pengurus', PengurusController::class, ['as' => 'admin']);
+        Route::get('/organisasi', [PengurusController::class, 'organisasi'])->name('admin.organisasi.index');
         Route::resource('/pengumuman', AdminPengumumanController::class, ['except' => ['index'], 'as' => 'admin']);
         Route::resource('/kegiatan', AdminKegiatanController::class, ['except' => ['index'], 'as' => 'admin']);
         Route::resource('/galeri', GaleriController::class, ['as' => 'admin']);

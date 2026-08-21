@@ -9,71 +9,37 @@
 <!-- Hero Section -->
 <div class="relative bg-gradient-to-br from-rose-900 via-rose-800 to-teal-900 text-white overflow-hidden">
     <div class="absolute inset-0">
-        <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 transition-all duration-1000" style="background-image: url('{{ asset('images/hero/slide1.jpg') }}')"></div>
-        <div class="hero-slide absolute inset-0 bg-cover bg-center opacity-0 transition-all duration-1000" style="background-image: url('{{ asset('images/hero/slide2.jpg') }}')"></div>
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('images/hero/background.jpeg') }}'); background-size: cover; background-position: center 40%;"></div>
     </div>
     <div class="absolute inset-0 bg-gradient-to-br from-black/50 via-black/30 to-black/50"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 py-24 md:py-32 flex flex-col items-center text-center">
-        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-800/50 border border-rose-700/50 text-rose-200 text-sm font-medium mb-6 backdrop-blur-sm">
+    <div class="relative max-w-7xl mx-auto px-4 py-16 md:py-24 lg:py-32 flex flex-col items-center text-center">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-800/50 border border-rose-700/50 text-rose-200 text-xs sm:text-sm font-medium mb-4 sm:mb-6 backdrop-blur-sm">
             <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
             Portal Resmi Lingkungan
         </span>
-        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight leading-tight">
+        <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 tracking-tight leading-tight">
             Selamat Datang di <br class="hidden md:block" />
             <span class="text-transparent bg-clip-text bg-gradient-to-r from-rose-200 to-teal-100">Puri Agung Permai RW12</span>
         </h1>
-        <p class="text-lg md:text-xl text-rose-100/90 max-w-2xl font-light mb-6 leading-relaxed">
+        <p class="text-sm sm:text-base md:text-xl text-rose-100/90 max-w-2xl font-light mb-4 sm:mb-6 leading-relaxed">
             Kelurahan Gelam Jaya, Kecamatan Pasar Kemis, <br class="hidden sm:block"/> Kabupaten Tangerang, Banten
         </p>
-        <p id="slide-tagline" class="text-base md:text-lg text-rose-200/80 font-light max-w-xl transition-all duration-700 min-h-[1.5rem]">
-            Kebersamaan warga dalam membangun lingkungan yang harmonis
+        <p id="slide-tagline" class="text-xs sm:text-base md:text-lg text-rose-200/80 font-light max-w-xl transition-all duration-700 min-h-[1.5rem]">
+            Guyub, Aman, Bersih, dan Melayani.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto">
-            <a href="{{ route('pengumuman') }}" class="group relative inline-flex items-center justify-center gap-2 bg-white text-rose-900 px-8 py-3.5 rounded-xl font-semibold hover:bg-rose-50 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transform hover:-translate-y-1 overflow-hidden">
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto">
+            <a href="{{ route('pengumuman') }}" class="group relative inline-flex items-center justify-center gap-2 bg-white text-rose-900 px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-semibold hover:bg-rose-50 transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transform hover:-translate-y-1 overflow-hidden">
                 <span class="relative z-10">Lihat Pengumuman</span>
-                <i data-lucide="arrow-right" class="w-5 h-5 relative z-10 transform group-hover:translate-x-1 transition-transform"></i>
+                <i data-lucide="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5 relative z-10 transform group-hover:translate-x-1 transition-transform"></i>
             </a>
-            <a href="{{ route('kegiatan') }}" class="inline-flex items-center justify-center gap-2 bg-rose-700/50 hover:bg-rose-600/60 text-white border border-rose-500/30 backdrop-blur-md px-8 py-3.5 rounded-xl font-semibold transition-all duration-300 hover:border-rose-400/50 transform hover:-translate-y-1">
-                <i data-lucide="calendar" class="w-5 h-5"></i>
+            <a href="{{ route('kegiatan') }}" class="inline-flex items-center justify-center gap-2 bg-rose-700/50 hover:bg-rose-600/60 text-white border border-rose-500/30 backdrop-blur-md px-6 py-3 sm:px-8 sm:py-3.5 rounded-xl font-semibold transition-all duration-300 hover:border-rose-400/50 transform hover:-translate-y-1">
+                <i data-lucide="calendar" class="w-4 h-4 sm:w-5 sm:h-5"></i>
                 Agenda Kegiatan
             </a>
         </div>
     </div>
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var slides = document.querySelectorAll('.hero-slide');
-    var taglineEl = document.getElementById('slide-tagline');
-    var captions = [
-        'Kebersamaan warga dalam membangun lingkungan yang harmonis',
-        'Informasi terbaru seputar kegiatan dan pengumuman RW'
-    ];
-    if (slides.length > 0) {
-        var current = 0;
-        slides[current].classList.remove('opacity-0');
-        slides[current].classList.add('opacity-100');
-        if (taglineEl) taglineEl.textContent = captions[current];
-        setInterval(function() {
-            slides[current].classList.remove('opacity-100');
-            slides[current].classList.add('opacity-0');
-            current = (current + 1) % slides.length;
-            slides[current].classList.remove('opacity-0');
-            slides[current].classList.add('opacity-100');
-            if (taglineEl) {
-                taglineEl.style.opacity = '0';
-                taglineEl.style.transform = 'translateY(10px)';
-                setTimeout(function() {
-                    taglineEl.textContent = captions[current];
-                    taglineEl.style.opacity = '1';
-                    taglineEl.style.transform = 'translateY(0)';
-                }, 200);
-            }
-        }, 5000);
-    }
-});
-</script>
 
 <!-- Stats Section (Pulled up) -->
 <div class="max-w-7xl mx-auto px-4 relative z-20 -mt-12 md:-mt-16 mb-20" data-aos="fade-up">

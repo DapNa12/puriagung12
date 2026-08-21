@@ -181,6 +181,15 @@
                                             <span class="text-xs text-slate-500">Kenali lebih dekat RT anda</span>
                                         </span>
                                     </a>
+                                    <a href="{{ route('struktur-organisasi') }}" class="mega-row{{ request()->routeIs('struktur-organisasi') ? ' bg-white ring-1 ring-rose-200' : '' }}" role="menuitem">
+                                        <span class="mega-icon-wrap">
+                                            <i data-lucide="building" class="mega-icon"></i>
+                                        </span>
+                                        <span class="flex flex-col gap-0.5 text-left">
+                                            <span class="text-sm font-semibold text-slate-900">Struktur Organisasi</span>
+                                            <span class="text-xs text-slate-500">DKM, KARTAR, PKK, Posyandu</span>
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -286,11 +295,6 @@
                                 <i data-lucide="layout-grid" class="w-4 h-4"></i>
                                 Dashboard
                             </a>
-                        @else
-                            <a href="{{ route('login') }}" class="hidden sm:inline-flex items-center gap-2 bg-rose-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-rose-700 transition-all shadow-sm">
-                                <i data-lucide="log-in" class="w-4 h-4"></i>
-                                Masuk
-                            </a>
                         @endauth
                         <button id="mobile-menu-btn" class="lg:hidden p-2 text-slate-600 hover:bg-slate-100 rounded-lg" aria-label="Buka menu">
                             <i data-lucide="menu" class="w-6 h-6"></i>
@@ -300,43 +304,65 @@
             </div>
 
             <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-200 bg-white">
-                <div class="px-4 py-4 space-y-5 max-h-[70vh] overflow-y-auto">
+                <div class="px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
                     <a href="{{ route('home') }}" class="block px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 {{ request()->routeIs('home') ? 'text-slate-900' : '' }}">Beranda</a>
 
                     <a href="{{ route('search') }}" class="block px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 {{ request()->routeIs('search') ? 'text-slate-900' : '' }}">
                         <span class="flex items-center gap-2"><i data-lucide="search" class="w-4 h-4"></i> Cari</span>
                     </a>
 
-                    <div>
-                        <p class="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Tentang Kami</p>
-                        <a href="{{ route('profil') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Profil</a>
-                        <a href="{{ route('struktur-rw') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Struktur RW</a>
-                        <a href="{{ route('pengurus-rt') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Pengurus RT</a>
+                    <div class="mobile-submenu">
+                        <button type="button" onclick="toggleMobileSubmenu(this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 transition-colors {{ request()->routeIs('pengurus-rt') || request()->routeIs('profil') || request()->routeIs('struktur-rw') ? 'text-slate-900' : '' }}">
+                            <span>Tentang Kami</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-submenu-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <div class="py-1 pl-4 space-y-0.5">
+                                <a href="{{ route('profil') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('profil') ? 'text-rose-600 bg-rose-50' : '' }}">Profil</a>
+                                <a href="{{ route('struktur-rw') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('struktur-rw') ? 'text-rose-600 bg-rose-50' : '' }}">Struktur RW</a>
+                                <a href="{{ route('pengurus-rt') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('pengurus-rt') ? 'text-rose-600 bg-rose-50' : '' }}">Pengurus RT</a>
+                                <a href="{{ route('struktur-organisasi') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('struktur-organisasi') ? 'text-rose-600 bg-rose-50' : '' }}">Struktur Organisasi</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div>
-                        <p class="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Layanan</p>
-                        <a href="{{ route('layanan.administrasi-kependudukan') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Administrasi Kependudukan</a>
-                        <a href="{{ route('layanan.keamanan-wilayah') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Keamanan Wilayah</a>
-                        <a href="{{ route('layanan.kebersihan-lingkungan') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Kebersihan Lingkungan</a>
+                    <div class="mobile-submenu">
+                        <button type="button" onclick="toggleMobileSubmenu(this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 transition-colors {{ request()->routeIs('layanan*') ? 'text-slate-900' : '' }}">
+                            <span>Layanan</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-submenu-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <div class="py-1 pl-4 space-y-0.5">
+                                <a href="{{ route('layanan.administrasi-kependudukan') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('layanan.administrasi-kependudukan') ? 'text-rose-600 bg-rose-50' : '' }}">Administrasi Kependudukan</a>
+                                <a href="{{ route('layanan.keamanan-wilayah') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('layanan.keamanan-wilayah') ? 'text-rose-600 bg-rose-50' : '' }}">Keamanan Wilayah</a>
+                                <a href="{{ route('layanan.kebersihan-lingkungan') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('layanan.kebersihan-lingkungan') ? 'text-rose-600 bg-rose-50' : '' }}">Kebersihan Lingkungan</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <div>
-                        <p class="px-3 text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Informasi</p>
-                        <a href="{{ route('pengumuman') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Berita</a>
-                        <a href="{{ route('kegiatan') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Kegiatan</a>
-                        <a href="{{ route('umkm') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">UMKM</a>
-                        <a href="{{ route('statistik') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Statistik</a>
-                        <a href="{{ route('galeri') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-700 hover:bg-slate-50">Galeri</a>
+                    <div class="mobile-submenu">
+                        <button type="button" onclick="toggleMobileSubmenu(this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 transition-colors {{ request()->routeIs('pengumuman*') || request()->routeIs('kegiatan*') || request()->routeIs('statistik') || request()->routeIs('umkm*') ? 'text-slate-900' : '' }}">
+                            <span>Informasi</span>
+                            <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200"></i>
+                        </button>
+                        <div class="mobile-submenu-content overflow-hidden transition-all duration-300" style="max-height: 0;">
+                            <div class="py-1 pl-4 space-y-0.5">
+                                <a href="{{ route('pengumuman') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('pengumuman*') ? 'text-rose-600 bg-rose-50' : '' }}">Berita</a>
+                                <a href="{{ route('kegiatan') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('kegiatan*') ? 'text-rose-600 bg-rose-50' : '' }}">Kegiatan</a>
+                                <a href="{{ route('umkm') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('umkm*') ? 'text-rose-600 bg-rose-50' : '' }}">UMKM</a>
+                                <a href="{{ route('statistik') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('statistik') ? 'text-rose-600 bg-rose-50' : '' }}">Statistik</a>
+                                <a href="{{ route('galeri') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('galeri*') ? 'text-rose-600 bg-rose-50' : '' }}">Galeri</a>
+                            </div>
+                        </div>
                     </div>
 
-                    <a href="https://wa.me/62895611487628" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-lg text-sm font-medium bg-rose-600 text-white text-center hover:bg-rose-700">Hubungi Kami</a>
+                    <div class="pt-2 space-y-2">
+                        <a href="https://wa.me/62895611487628" target="_blank" rel="noopener noreferrer" class="block px-3 py-2.5 rounded-lg text-sm font-medium bg-rose-600 text-white text-center hover:bg-rose-700">Hubungi Kami</a>
 
-                    @auth
-                        <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-rose-600 bg-rose-50 text-center">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium bg-rose-600 text-white text-center">Masuk</a>
-                    @endauth
+                        @auth
+                            <a href="{{ route('admin.dashboard') }}" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-rose-600 bg-rose-50 text-center">Dashboard</a>
+                        @endauth
+                    </div>
                 </div>
             </div>
         </div>
@@ -375,6 +401,7 @@
                         <li><a href="{{ route('profil') }}" class="hover:text-rose-600 transition-colors">Profil</a></li>
                         <li><a href="{{ route('struktur-rw') }}" class="hover:text-rose-600 transition-colors">Struktur RW</a></li>
                         <li><a href="{{ route('pengurus-rt') }}" class="hover:text-rose-600 transition-colors">Pengurus RT</a></li>
+                        <li><a href="{{ route('struktur-organisasi') }}" class="hover:text-rose-600 transition-colors">Struktur Organisasi</a></li>
                     </ul>
                 </div>
 
@@ -458,6 +485,20 @@
         document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
             document.getElementById('mobile-menu')?.classList.toggle('hidden');
         });
+
+        // Mobile submenu accordion
+        function toggleMobileSubmenu(btn) {
+            var content = btn.nextElementSibling;
+            var icon = btn.querySelector('[data-lucide]');
+            var isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+            if (isOpen) {
+                content.style.maxHeight = '0px';
+                if (icon) icon.style.transform = '';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                if (icon) icon.style.transform = 'rotate(180deg)';
+            }
+        }
 
         // Scroll Animation (AOS-like)
         document.addEventListener('DOMContentLoaded', function() {

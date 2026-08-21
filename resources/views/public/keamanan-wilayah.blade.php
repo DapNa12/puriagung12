@@ -14,22 +14,22 @@
 </div>
 
 <div class="max-w-7xl mx-auto px-4 py-14">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-14">
         <div class="rw-card p-6 text-center">
-            <p class="text-3xl md:text-4xl font-extrabold text-slate-900">2</p>
-            <p class="text-slate-500 text-sm mt-1">Regu Keamanan</p>
+            <p class="text-3xl md:text-4x1 font-extrabold text-slate-900">1</p>
+            <p class="text-slate-650 text-sm mt-1">Regu Keamanan</p>
         </div>
         <div class="rw-card p-6 text-center">
-            <p class="text-3xl md:text-4xl font-extrabold text-slate-900">30</p>
-            <p class="text-slate-500 text-sm mt-1">Personel</p>
+            <p class="text-3xl md:text-4xl font-extrabold text-slate-900">3</p>
+            <p class="text-slate-650 text-sm mt-1">Personel</p>
         </div>
-        <div class="rw-card p-6 text-center">
+        <!-- <div class="rw-card p-6 text-center">
             <p class="text-3xl md:text-4xl font-extrabold text-slate-900">145</p>
             <p class="text-slate-500 text-sm mt-1">Titik CCTV</p>
-        </div>
+        </div> -->
         <div class="rw-card p-6 text-center">
             <p class="text-3xl md:text-4xl font-extrabold text-slate-900">24</p>
-            <p class="text-slate-500 text-sm mt-1">Jam Patroli</p>
+            <p class="text-slate-650 text-sm mt-1">Jam Patroli</p>
         </div>
     </div>
 
@@ -38,8 +38,8 @@
             <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Petugas Keamanan</h2>
             <div class="rw-card p-6 md:p-8">
                 <div class="space-y-4 text-slate-600 leading-relaxed">
-                    <p>Keamanan wilayah RW 12 dijaga oleh dua regu keamanan, yaitu Cakra dan Pasoepati, yang masing-masing beranggotakan 15 personel. Para petugas ini bertugas menjaga ketertiban dan keamanan lingkungan melalui penjagaan di titik-titik strategis wilayah, serta melakukan patroli berkala di seluruh area permukiman.</p>
-                    <p>Dengan jumlah personel yang memadai dan sistem kerja yang terstruktur, petugas keamanan selalu siap merespons permintaan warga apabila terjadi situasi yang membutuhkan bantuan atau penanganan cepat. Kehadiran dua regu keamanan ini menjadi garda terdepan dalam memastikan lingkungan RW 12 tetap aman, kondusif, dan tertib setiap hari.</p>
+                    <p>RW 12 Perum Puri Agung Permai memiliki tim keamanan yang terdiri dari 4 orang, yaitu 1 orang koordinator keamanan Bapak AGUS LD, dan 3 personel keamanan yaitu Bapak Endang, Bapak Iwan, dan Bapak Dede. Tim ini bertugas menjaga keamanan dan ketertiban lingkungan, berkoordinasi dengan pengurus RT dan pihak terkait, serta menindaklanjuti laporan warga agar lingkungan tetap aman, tertib, dan kondusif.</p>
+                    <p>Dengan jumlah personel yang ada dan sistem keamanan 24 jam, petugas keamanan selalu siap merespons permintaan warga apabila terjadi situasi yang membutuhkan bantuan atau penanganan cepat. Kehadiran para petugas keamanan ini menjadi garda terdepan dalam memastikan lingkungan RW 12 tetap aman, kondusif, dan tertib setiap hari.</p>
                 </div>
             </div>
         </div>
@@ -48,9 +48,7 @@
             <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Sistem Pengawasan CCTV</h2>
             <div class="rw-card p-6 md:p-8">
                 <div class="space-y-4 text-slate-600 leading-relaxed">
-                    <p>Untuk meningkatkan keamanan, RW 12 telah dilengkapi dengan 145 titik kamera CCTV yang mencakup hampir seluruh sudut gang dan jalan. Pemantauan dilakukan secara terpusat melalui Central Control Room (CCR) oleh dua operator yang bekerja bergantian, memastikan setiap aktivitas terekam dan dapat diawasi secara real-time.</p>
-                    <p>Rekaman CCTV disimpan dengan durasi retensi hingga 30 hari terakhir, sehingga data video dapat ditinjau kembali jika diperlukan. Bagi warga yang membutuhkan akses rekaman untuk keperluan tertentu, Sekretariat RW 12 menyediakan prosedur resmi melalui formulir permohonan yang harus diisi terlebih dahulu.</p>
-                    <p>Dengan sistem pengawasan yang terintegrasi dan operasional yang profesional, fasilitas CCTV ini menjadi elemen penting dalam menjaga keamanan, mendeteksi potensi gangguan, serta memberikan rasa aman bagi seluruh warga RW 12.</p>
+                    <p>Untuk perangkat kemanan CCTV RW 12 sampai saat ini masih bersifat individual, belum ada yang dikolal langsung oleh pihak keamanan RW, tapi dengan seiring waktu berjalan diharapkan bisa tersalurkan perangkat keamanan CCTV yang dikelola oleh keamanan RW 12</p>
                 </div>
             </div>
         </div>

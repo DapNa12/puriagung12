@@ -30,11 +30,4 @@ class Kegiatan extends Model
     {
         return $this->waktu ? Carbon::parse($this->waktu)->format('H.i') : null;
     }
-
-    public static function autoResolveStatus(): int
-    {
-        return self::where('status', 'akan_datang')
-            ->where('tanggal', '<', now()->toDateString())
-            ->update(['status' => 'selesai']);
-    }
 }

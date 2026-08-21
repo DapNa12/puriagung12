@@ -19,31 +19,45 @@
 
         <div class="mb-4">
             <label class="block text-sm font-medium text-slate-700 mb-1">Nama <span class="text-red-500">*</span></label>
-            <input type="text" name="nama" value="{{ old('nama', $pengurus->nama) }}" placeholder="Nama lengkap pengurus" class="input-field @error('nama') input-error @enderror">
+            <input type="text" name="nama" value="{{ old('nama', $pengurus->nama) }}" placeholder="Nama lengkap" class="input-field @error('nama') input-error @enderror">
             @error('nama')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
         </div>
 
-        <div class="mb-4">
-            <label class="block text-sm font-medium text-slate-700 mb-1">RT</label>
-            <input type="text" name="rt" list="rt-list" value="{{ old('rt', $pengurus->rt) }}" placeholder="Contoh: 001" maxlength="3" class="input-field @error('rt') input-error @enderror">
-            <datalist id="rt-list">
-                @foreach($daftarRt as $rt)
-                <option value="{{ $rt }}">
-                @endforeach
-            </datalist>
-            @error('rt')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
-            <p class="text-xs text-slate-400 mt-1">Nomor RT tempat pengurus bertugas. Kosongi untuk pengurus RW.</p>
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">RT</label>
+                <input type="text" name="rt" id="input-rt" list="rt-list" value="{{ old('rt', $pengurus->rt) }}" placeholder="Contoh: 001" maxlength="3" class="input-field @error('rt') input-error @enderror">
+                <datalist id="rt-list">
+                    @foreach($daftarRt as $rt)
+                    <option value="{{ $rt }}">
+                    @endforeach
+                </datalist>
+                @error('rt')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Organisasi</label>
+                <select name="organisasi" id="input-organisasi" class="input-field @error('organisasi') input-error @enderror">
+                    <option value="">-- Tidak Ada --</option>
+                    @foreach(['DKM', 'KARTAR', 'PKK', 'Posyandu'] as $org)
+                    <option value="{{ $org }}" @selected(old('organisasi', $pengurus->organisasi)==$org)>{{ $org }}</option>
+                    @endforeach
+                </select>
+                @error('organisasi')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
+            </div>
         </div>
 
         <div class="mb-4">
             <label class="block text-sm font-medium text-slate-700 mb-1">Jabatan <span class="text-red-500">*</span></label>
-            <select name="jabatan" class="input-field @error('jabatan') input-error @enderror">
-                @php $opsiJabatan = ['Ketua RT', 'Sekretaris RT', 'Bendahara RT', 'Ketua RW', 'Wakil Ketua', 'Sekretaris', 'Bendahara']; @endphp
-                @if($pengurus->jabatan && !in_array($pengurus->jabatan, $opsiJabatan))
-                <option value="{{ $pengurus->jabatan }}" @selected(old('jabatan', $pengurus->jabatan)==$pengurus->jabatan)>{{ $pengurus->jabatan }} (kustom)</option>
-                @endif
-                @foreach($opsiJabatan as $opsi)
-                <option value="{{ $opsi }}" @selected(old('jabatan', $pengurus->jabatan)==$opsi)>{{ $opsi }}</option>
+            <select name="jabatan" id="input-jabatan" class="input-field @error('jabatan') input-error @enderror">
+                <option value="">-- Pilih Jabatan --</option>
+                @foreach(['Ketua RW', 'Wakil Ketua', 'Sekretaris', 'Bendahara'] as $op)
+                <option data-group="rw" value="{{ $op }}" @selected(old('jabatan', $pengurus->jabatan)==$op)>{{ $op }}</option>
+                @endforeach
+                @foreach(['Ketua RT', 'Sekretaris RT', 'Bendahara RT'] as $op)
+                <option data-group="rt" value="{{ $op }}" @selected(old('jabatan', $pengurus->jabatan)==$op)>{{ $op }}</option>
+                @endforeach
+                @foreach(['Ketua', 'Wakil Ketua', 'Sekretaris', 'Bendahara', 'Anggota'] as $op)
+                <option data-group="org" value="{{ $op }}" @selected(old('jabatan', $pengurus->jabatan)==$op)>{{ $op }}</option>
                 @endforeach
             </select>
             @error('jabatan')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
@@ -71,7 +85,7 @@
             </div>
             @endif
             <input type="file" name="foto" accept="image/*" class="input-field @error('foto') input-error @enderror">
-            <p class="text-xs text-slate-400 mt-1">Format: JPG, PNG. Maksimal 5MB. Kosongi jika tidak ingin mengubah foto.</p>
+            <p class="text-xs text-slate-400 mt-1">JPG/PNG, maks 5MB. Kosongi jika tidak ingin mengubah.</p>
             @error('foto')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
         </div>
 
@@ -81,4 +95,36 @@
         </div>
     </form>
 </div>
+
+<script>
+(function() {
+    var inputRt = document.getElementById('input-rt');
+    var inputOrg = document.getElementById('input-organisasi');
+    var inputJabatan = document.getElementById('input-jabatan');
+    var allOptions = Array.from(inputJabatan.querySelectorAll('option[data-group]'));
+    var currentJabatan = '{{ old('jabatan', $pengurus->jabatan) }}';
+
+    function updateJabatan() {
+        var rt = inputRt.value.trim();
+        var org = inputOrg.value;
+        var group = org ? 'org' : (rt ? 'rt' : 'rw');
+        var valid = false;
+
+        inputJabatan.innerHTML = '<option value="">-- Pilih Jabatan --</option>';
+        allOptions.forEach(function(opt) {
+            if (opt.dataset.group === group) {
+                inputJabatan.appendChild(opt.cloneNode(true));
+                if (opt.value === currentJabatan) valid = true;
+            }
+        });
+
+        if (valid) inputJabatan.value = currentJabatan;
+        else inputJabatan.value = '';
+    }
+
+    inputRt.addEventListener('input', updateJabatan);
+    inputOrg.addEventListener('change', updateJabatan);
+    updateJabatan();
+})();
+</script>
 @endsection

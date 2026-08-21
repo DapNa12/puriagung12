@@ -55,6 +55,10 @@
                 <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">RT</p>
                 <p class="text-sm font-medium text-slate-900 mt-1">{{ $pengurus->rt ? 'RT '.$pengurus->rt : 'RW (tanpa RT)' }}</p>
             </div>
+            <div>
+                <p class="text-xs text-slate-400 uppercase tracking-wider font-semibold">Organisasi</p>
+                <p class="text-sm font-medium text-slate-900 mt-1">{{ $pengurus->organisasi ?: '-' }}</p>
+            </div>
         </div>
     </div>
 </div>

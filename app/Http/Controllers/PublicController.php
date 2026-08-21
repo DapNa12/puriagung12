@@ -105,15 +105,33 @@ class PublicController extends Controller
         $urutanPeran = ['Ketua RW', 'Wakil Ketua', 'Sekretaris', 'Bendahara'];
 
         $pengurusRw = Pengurus::whereNull('rt')
+            ->whereNull('organisasi')
             ->orderBy('id')
             ->get()
             ->sortBy(fn ($p) => ($key = array_search($p->jabatan, $urutanPeran, true)) === false ? 99 : $key)
             ->values();
 
+        $organisasi = Pengurus::whereNotNull('organisasi')
+            ->orderBy('organisasi')
+            ->orderBy('jabatan')
+            ->get()
+            ->groupBy('organisasi');
+
         $tahunMulai = $pengurusRw->filter(fn ($p) => $p->periode_mulai)->min(fn ($p) => Carbon::parse($p->periode_mulai)->format('Y'));
         $tahunSelesai = $pengurusRw->filter(fn ($p) => $p->periode_selesai)->max(fn ($p) => Carbon::parse($p->periode_selesai)->format('Y'));
 
-        return view('public.struktur-rw', compact('pengurusRw', 'tahunMulai', 'tahunSelesai'));
+        return view('public.struktur-rw', compact('pengurusRw', 'organisasi', 'tahunMulai', 'tahunSelesai'));
+    }
+
+    public function strukturOrganisasi()
+    {
+        $organisasi = Pengurus::whereNotNull('organisasi')
+            ->orderBy('organisasi')
+            ->orderBy('jabatan')
+            ->get()
+            ->groupBy('organisasi');
+
+        return view('public.struktur-organisasi', compact('organisasi'));
     }
 
     public function statistik(Request $request)

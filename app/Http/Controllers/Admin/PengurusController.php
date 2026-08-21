@@ -14,16 +14,38 @@ class PengurusController extends Controller
     public function index(Request $request)
     {
         $query = Pengurus::query();
+        if ($organisasi = $request->get('organisasi')) {
+            $query->where('organisasi', $organisasi);
+        }
         if ($search = $request->get('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('nama', 'like', "%{$search}%")
                     ->orWhere('jabatan', 'like', "%{$search}%")
-                    ->orWhere('rt', 'like', "%{$search}%");
+                    ->orWhere('rt', 'like', "%{$search}%")
+                    ->orWhere('organisasi', 'like', "%{$search}%");
             });
         }
         $pengurus = $query->latest()->paginate(10)->withQueryString();
 
         return view('admin.pengurus.index', compact('pengurus'));
+    }
+
+    public function organisasi(Request $request)
+    {
+        $query = Pengurus::whereNotNull('organisasi');
+        if ($organisasi = $request->get('filter')) {
+            $query->where('organisasi', $organisasi);
+        }
+        if ($search = $request->get('search')) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%{$search}%")
+                    ->orWhere('jabatan', 'like', "%{$search}%")
+                    ->orWhere('organisasi', 'like', "%{$search}%");
+            });
+        }
+        $pengurus = $query->orderBy('organisasi')->orderBy('jabatan')->paginate(10)->withQueryString();
+
+        return view('admin.pengurus.organisasi', compact('pengurus'));
     }
 
     public function create()
@@ -45,7 +67,7 @@ class PengurusController extends Controller
 
         $name = $pengurus->nama.' - '.$pengurus->jabatan;
         ActivityLog::log('create', $pengurus, $name, null, $pengurus->only([
-            'nama', 'rt', 'jabatan', 'periode_mulai', 'periode_selesai',
+            'nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai',
         ]));
 
         return redirect()->route('admin.pengurus.index')->with('success', 'Data pengurus berhasil ditambahkan.');
@@ -68,13 +90,14 @@ class PengurusController extends Controller
         $data = $request->validate([
             'nama' => 'required|string|max:255',
             'rt' => 'nullable|string|max:3',
+            'organisasi' => 'nullable|string|max:255',
             'jabatan' => 'required|string|max:255',
             'periode_mulai' => 'required|date',
             'periode_selesai' => 'nullable|date|after:periode_mulai',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
-        $old = $pengurus->only(['nama', 'rt', 'jabatan', 'periode_mulai', 'periode_selesai']);
+        $old = $pengurus->only(['nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai']);
         $oldName = $pengurus->nama.' - '.$pengurus->jabatan;
 
         if ($request->hasFile('foto')) {
@@ -94,7 +117,7 @@ class PengurusController extends Controller
 
     public function destroy(Pengurus $pengurus)
     {
-        $old = $pengurus->only(['nama', 'rt', 'jabatan', 'periode_mulai', 'periode_selesai']);
+        $old = $pengurus->only(['nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai']);
         $name = $pengurus->nama.' - '.$pengurus->jabatan;
 
         if ($pengurus->foto) {

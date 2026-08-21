@@ -18,9 +18,9 @@
         <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-8">Letak Geografis</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div class="space-y-4 text-slate-600 leading-relaxed">
-                <p>Kawasan RW 12 terletak di Kelurahan Gelam Jaya, Kecamatan Pasar Kemis, Kabupaten Tangerang, Banten. Terbentang di lahan seluas 12 hektar, mulai dari blok A hingga blok G. Kawasan ini ditentukan oleh batas-batas geografis tertentu.</p>
-                <p>Di sisi Utara dibatasi oleh Jl. Gelam Jaya. Di sisi Timur dibatasi oleh Jl. Pasar Kemis Raya. Di sisi Barat dibatasi oleh Jl. Raya Serpong.</p>
-                <p>Kawasan RW 12 merupakan kawasan hunian yang terdiri atas 7 RT, dilengkapi fasilitas umum seperti lapangan olahraga, pos keamanan, serta sarana ibadah yang dikelola bersama warga.</p>
+                <p>Letak Geografis RW 12 Perum Puri Agung Permai Rw 12 terletak di kawasan Perum Puri Agung Permai, Kabupaten Tangerang, Banten, yang merupakan bagian dari kawasan penyangga Jakarta dengan akses transportasi yang cukup baik menuju Kota Tangerang, Kabupaten Tangerang, serta DKI Jakarta</p>
+                <p>Secara geografis didominasi kawasan permukiman dengan topografi relatif datar yang mendukung aktivitas masyarakat dan pembangunan infrastruktur</p>
+                <p>Di Wilayahnya terdapat fasilitas umu seperti tempat ibadah, sarana pendidikan, fasilitas kesehatan, area perdagangan, dan ruang terbuka yang menunjang kebutuhna warga. Posisi RW 12 yang strategis memudahkan mobilitas masyarakat dan mendukung kegiatan sosial, ekonomi, pendidikan, dan kemasyarakatan</p>
             </div>
             <div class="aspect-video rounded-md overflow-hidden border border-slate-200">
                 <iframe 
@@ -42,16 +42,8 @@
             <div class="rw-card p-6 md:p-8 space-y-5">
                 <h3 class="text-xl font-bold text-slate-900">Visi</h3>
                 <div class="rw-list">
-                    <span class="rw-list-icon">
-                        <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
-                    </span>
-                    <p class="text-slate-600">Menciptakan lingkungan yang sehat, hijau, aman, tertib, asri dan serasi.</p>
-                </div>
-                <div class="rw-list">
-                    <span class="rw-list-icon">
-                        <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
-                    </span>
-                    <p class="text-slate-600">Melakukan digitalisasi pelayanan kepada warga sebagai pilihan alternatif, seiring dengan perkembangan zaman.</p>
+
+                    <p class="text-slate-600">Terwujudnya RW12 Perum Puri Agung Permai Sebagai lingkungan yang aman, nyaman, bersih, sehat, rukun, religius, dan berdaya melalui pelayanan yang trasnparan dan partisipatif demi kesejahteraan seluruh warga</p>
                 </div>
             </div>
 
@@ -61,20 +53,45 @@
                     <span class="rw-list-icon">
                         <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
                     </span>
-                    <p class="text-slate-600">Pengelolaan kebersihan lingkungan secara mandiri yang dilakukan setiap hari.</p>
+                    <p class="text-slate-600">Meningkatkan kualitas pelayanan kepada warga secara cepat, ramah, transparan dan akuntabel.</p>
                 </div>
                 <div class="rw-list">
                     <span class="rw-list-icon">
                         <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
                     </span>
-                    <p class="text-slate-600">Pemasangan CCTV di titik-titik strategis untuk memudahkan pemantauan keamanan wilayah.</p>
+                    <p class="text-slate-600">Mewujudkan lingkunagn bersih, sehat, hijau dan tertata melalu budaya gotong royong dan kepedulian kebersihan.</p>
                 </div>
                 <div class="rw-list">
                     <span class="rw-list-icon">
                         <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
                     </span>
-                    <p class="text-slate-600">Pengembangan aplikasi untuk memenuhi kebutuhan warga akan pelayanan dan informasi.</p>
+                    <p class="text-slate-600">Memperkuat keamanan dan ketertiban lingkungan bersama pengurus RT, RW, dan Warga</p>
                 </div>
+                                <div class="rw-list">
+                    <span class="rw-list-icon">
+                        <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
+                    </span>
+                    <p class="text-slate-600">Meningkatkan kerukunan dan kepedulian sosial antar warga tanpa membedakan latar belakang</p>
+                </div>
+                <div class="rw-list">
+                    <span class="rw-list-icon">
+                        <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
+                    </span>
+                    <p class="text-slate-600">Mendukung kegiatan keagamaan, kepemudaan, pendidikan, olahraga, serta pemberdayaan prempuan dan lansia untuk meningkatkan kualitas hidup</p>
+                </div>
+                <div class="rw-list">
+                    <span class="rw-list-icon">
+                        <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
+                    </span>
+                    <p class="text-slate-600">Mengembangkan kolaborasi dengan pemerintah dan lembaga kemasyarakatan untuk mendukung kemajuan RW12</p>
+                </div>
+                <div class="rw-list">
+                    <span class="rw-list-icon">
+                        <i data-lucide="check" class="w-4 h-4 text-slate-900"></i>
+                    </span>
+                    <p class="text-slate-600">Mendorong pemanfaatan teknologi informasi untuk penyampaian informasi dan pelayanan warga yang lebih efektif</p>
+                </div>
+
             </div>
         </div>
     </section>

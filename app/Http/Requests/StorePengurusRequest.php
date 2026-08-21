@@ -16,6 +16,7 @@ class StorePengurusRequest extends FormRequest
         return [
             'nama' => 'required|string|max:255',
             'rt' => 'nullable|string|max:3',
+            'organisasi' => 'nullable|string|max:255',
             'jabatan' => 'required|string|max:255',
             'periode_mulai' => 'required|date',
             'periode_selesai' => 'nullable|date|after:periode_mulai',

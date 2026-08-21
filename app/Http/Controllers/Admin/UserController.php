@@ -36,6 +36,11 @@ class UserController extends Controller
         return view('admin.users.create');
     }
 
+    public function show(User $user)
+    {
+        return view('admin.users.show', compact('user'));
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([

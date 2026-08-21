@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Pengurus extends Model
 {
@@ -13,14 +12,10 @@ class Pengurus extends Model
         'warga_id',
         'nama',
         'rt',
+        'organisasi',
         'jabatan',
         'periode_mulai',
         'periode_selesai',
         'foto',
     ];
-
-    public function warga(): BelongsTo
-    {
-        return $this->belongsTo(Warga::class);
-    }
 }
