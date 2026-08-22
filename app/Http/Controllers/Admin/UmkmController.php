@@ -8,7 +8,6 @@ use App\Models\ActivityLog;
 use App\Models\Umkm;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 class UmkmController extends Controller
 {
@@ -41,7 +40,6 @@ class UmkmController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = $request->user()->id;
-        $data['slug'] = Str::slug($data['nama']);
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto-umkm', 'public');

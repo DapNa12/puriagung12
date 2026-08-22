@@ -54,11 +54,23 @@ class Umkm extends Model
             if (empty($umkm->slug)) {
                 $umkm->slug = Str::slug($umkm->nama);
             }
+            $baseSlug = $umkm->slug;
+            $count = static::where('slug', $baseSlug)->count();
+            if ($count > 0) {
+                $umkm->slug = $baseSlug . '-' . ($count + 1);
+            }
         });
 
         static::updating(function (Umkm $umkm) {
             if ($umkm->isDirty('nama') && ! $umkm->isDirty('slug')) {
                 $umkm->slug = Str::slug($umkm->nama);
+            }
+            if ($umkm->isDirty('slug')) {
+                $baseSlug = $umkm->slug;
+                $count = static::where('slug', $baseSlug)->where('id', '!=', $umkm->id)->count();
+                if ($count > 0) {
+                    $umkm->slug = $baseSlug . '-' . ($count + 1);
+                }
             }
         });
     }

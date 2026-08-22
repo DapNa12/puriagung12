@@ -83,7 +83,7 @@ html.sb-collapsed #sidebar .user-actions button { width: 2.75rem; height: 2.75re
     <script>if(localStorage.getItem('sidebar-collapsed')==='true')document.documentElement.classList.add('sb-collapsed')</script>
 </head>
 <body class="bg-slate-50 h-screen flex overflow-hidden">
-    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 bg-white border-r border-slate-200 flex flex-col transform -translate-x-full md:translate-x-0 transition-all duration-300 h-screen flex-shrink-0">
+    <aside id="sidebar" class="fixed md:static inset-y-0 left-0 z-50 bg-white border-r border-slate-200 flex flex-col transform -translate-x-full md:translate-x-0 md:transition-none transition-transform duration-300 ease-in-out h-full md:h-auto flex-shrink-0">
         <div class="sidebar-header h-16 flex items-center border-b border-slate-100 px-4 gap-3 flex-shrink-0">
             <a href="{{ route('admin.dashboard') }}" id="sidebar-logo-link" class="sidebar-logo flex items-center gap-2.5 min-w-0 flex-1">
                 <img src="{{ asset('images/hero/logo_puri.png') }}" alt="Logo Puri Agung Permai RW12" class="w-8 h-8 flex-shrink-0 object-contain">
@@ -174,7 +174,7 @@ html.sb-collapsed #sidebar .user-actions button { width: 2.75rem; height: 2.75re
 
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/30 z-40 hidden md:hidden"></div>
 
-    <div id="main-content" class="flex-1 flex flex-col min-w-0 transition-all duration-300 overflow-y-auto">
+    <div id="main-content" class="flex-1 flex flex-col min-w-0 overflow-y-auto">
         <header class="bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm h-14 flex items-center px-4 md:px-6 sticky top-0 z-40">
             <div class="flex items-center justify-between w-full">
                 <div class="flex items-center gap-3">
@@ -308,7 +308,6 @@ html.sb-collapsed #sidebar .user-actions button { width: 2.75rem; height: 2.75re
                 sidebar.classList.remove('-translate-x-full');
                 overlay.classList.add('hidden');
                 syncToggleIcon(false);
-                document.documentElement.classList.remove('sb-collapsed');
             }
         });
 
