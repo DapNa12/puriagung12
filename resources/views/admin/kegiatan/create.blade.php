@@ -17,6 +17,20 @@
     <form action="{{ route('admin.kegiatan.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
+        @if($errors->any())
+        <div class="mb-5 rounded-xl border border-red-200 bg-red-50 p-4">
+            <p class="text-sm font-semibold text-red-700 mb-1.5 flex items-center gap-1.5">
+                <i data-lucide="alert-circle" class="w-4 h-4"></i>
+                Periksa kembali isian berikut:
+            </p>
+            <ul class="list-disc list-inside text-xs text-red-600 space-y-0.5">
+                @foreach($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         <div class="mb-4">
             <label class="block text-sm font-medium text-slate-700 mb-1">Nama Kegiatan <span class="text-red-500">*</span></label>
             <input type="text" name="nama_kegiatan" value="{{ old('nama_kegiatan') }}" class="input-field @error('nama_kegiatan') input-error @enderror">
@@ -64,7 +78,7 @@
             <label class="block text-sm font-medium text-slate-700 mb-1">Foto</label>
             <input type="file" name="foto" accept="image/*" class="input-field @error('foto') input-error @enderror">
             @error('foto')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
-            <p class="text-xs text-slate-400 mt-1">Format: JPG, PNG. Maksimal 5MB.</p>
+            <p class="text-xs text-slate-400 mt-1">Format: JPG, PNG. Maksimal 2MB.</p>
         </div>
 
         <div class="flex space-x-3">

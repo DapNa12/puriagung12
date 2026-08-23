@@ -23,7 +23,7 @@ class StoreKegiatanRequest extends FormRequest
             'tanggal' => 'required|date',
             'waktu' => 'nullable|date_format:H:i',
             'tempat' => 'nullable|string|max:255',
-            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'status' => 'required|in:akan_datang,selesai,dibatalkan',
         ];
     }

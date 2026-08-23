@@ -46,15 +46,26 @@
                 @foreach($berita as $b)
                 <tr class="hover:bg-slate-50 transition-colors">
                     <td class="px-4 py-3.5">
-                        <div class="flex items-center gap-2 mb-1">
-                            @if($b['tipe'] === 'pengumuman')
-                            <span class="badge bg-rose-50 text-rose-700">Pengumuman</span>
+                        <div class="flex items-center gap-3">
+                            @if($b['foto'])
+                            <img src="{{ asset('storage/'.$b['foto']) }}" alt="{{ $b['judul'] }}" class="w-12 h-12 rounded-lg object-cover flex-shrink-0 border border-slate-200">
                             @else
-                            <span class="badge bg-violet-50 text-violet-700">Kegiatan</span>
+                            <div class="w-12 h-12 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                                <i data-lucide="image" class="w-5 h-5 text-slate-300"></i>
+                            </div>
                             @endif
+                            <div class="min-w-0">
+                                <div class="flex items-center gap-2 mb-1">
+                                    @if($b['tipe'] === 'pengumuman')
+                                    <span class="badge bg-rose-50 text-rose-700">Pengumuman</span>
+                                    @else
+                                    <span class="badge bg-violet-50 text-violet-700">Kegiatan</span>
+                                    @endif
+                                </div>
+                                <p class="text-sm font-medium text-slate-900 truncate">{{ $b['judul'] }}</p>
+                                <p class="text-xs text-slate-500 md:hidden">{{ \Carbon\Carbon::parse($b['tanggal'])->isoFormat('D MMMM Y') }}</p>
+                            </div>
                         </div>
-                        <p class="text-sm font-medium text-slate-900">{{ $b['judul'] }}</p>
-                        <p class="text-xs text-slate-500 md:hidden">{{ \Carbon\Carbon::parse($b['tanggal'])->isoFormat('D MMMM Y') }}</p>
                     </td>
                     <td class="px-4 py-3.5">
                         @if($b['tipe'] === 'pengumuman')
@@ -121,6 +132,13 @@
                 <p class="text-sm font-semibold text-slate-900 truncate">{{ $b['judul'] }}</p>
                 <p class="text-xs text-slate-500">{{ \Carbon\Carbon::parse($b['tanggal'])->isoFormat('D MMMM Y') }}</p>
             </div>
+            @if($b['foto'])
+            <img src="{{ asset('storage/'.$b['foto']) }}" alt="{{ $b['judul'] }}" class="w-14 h-14 rounded-xl object-cover flex-shrink-0 border border-slate-100 ml-2">
+            @else
+            <div class="w-14 h-14 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center flex-shrink-0 ml-2">
+                <i data-lucide="image" class="w-6 h-6 text-slate-200"></i>
+            </div>
+            @endif
             @if($b['tipe'] === 'pengumuman')
             <span class="badge flex-shrink-0 {{ $b['status'] === 'aktif' ? 'bg-emerald-50 text-emerald-700' : 'bg-slate-100 text-slate-600' }}">
                 <span class="badge-dot {{ $b['status'] === 'aktif' ? 'bg-emerald-500' : 'bg-slate-400' }}"></span>
