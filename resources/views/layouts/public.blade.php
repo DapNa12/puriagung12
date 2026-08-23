@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="google-site-verification" content="wUc9FkftNCH8q5WMoF_qz-iO6WRMCHleKl0PAicKJ_8">
     <link rel="icon" href="{{ asset('images/hero/logo_puri.png') }}">
     <title>@yield('title', 'Puri Agung Permai RW12') - Puri Agung Permai RW12</title>
     <meta name="description" content="@yield('meta_description', 'Portal resmi Puri Agung Permai RW12, Kelurahan Gelam Jaya, Kecamatan Pasar Kemis, Kabupaten Tangerang. Informasi berita, pengumuman, kegiatan, dan layanan warga.')">
