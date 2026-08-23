@@ -6,6 +6,8 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GaleriController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
 use App\Http\Controllers\Admin\PengumumanController as AdminPengumumanController;
+use App\Http\Controllers\Admin\JajaranController;
+use App\Http\Controllers\Admin\OrganisasiController;
 use App\Http\Controllers\Admin\PengurusController;
 use App\Http\Controllers\Admin\StatistikController;
 use App\Http\Controllers\Admin\UmkmController;
@@ -33,7 +35,7 @@ Route::middleware(PreventAbuse::class)->group(function () {
     Route::get('/galeri/{album}', [PublicController::class, 'galeriShow'])->name('galeri.show');
 });
 
-Route::get('/pengurus-rt', [PublicController::class, 'pengurusRt'])->name('pengurus-rt');
+Route::get('/jajaran-pengurus-rt', [PublicController::class, 'jajaranPengurusRt'])->name('jajaran-pengurus-rt');
 
 Route::get('/profil', [PublicController::class, 'profil'])->name('profil');
 Route::get('/struktur-rw', [PublicController::class, 'strukturRw'])->name('struktur-rw');
@@ -53,7 +55,9 @@ Route::prefix('admin')->middleware(['auth', 'verified', 'check.admin'])->group(f
     Route::middleware('check.role:admin,sekretaris')->group(function () {
         Route::get('/berita', [BeritaController::class, 'index'])->name('admin.berita.index');
         Route::resource('/pengurus', PengurusController::class, ['as' => 'admin']);
-        Route::get('/organisasi', [PengurusController::class, 'organisasi'])->name('admin.organisasi.index');
+        Route::resource('/jajaran', JajaranController::class, ['as' => 'admin']);
+        Route::resource('/organisasi', OrganisasiController::class, ['except' => ['index'], 'as' => 'admin']);
+        Route::get('/organisasi', [OrganisasiController::class, 'index'])->name('admin.organisasi.index');
         Route::resource('/pengumuman', AdminPengumumanController::class, ['except' => ['index'], 'as' => 'admin']);
         Route::resource('/kegiatan', AdminKegiatanController::class, ['except' => ['index'], 'as' => 'admin']);
         Route::resource('/galeri', GaleriController::class, ['as' => 'admin']);

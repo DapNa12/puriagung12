@@ -3,44 +3,50 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePengurusRequest;
 use App\Models\ActivityLog;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class PengurusController extends Controller
+class OrganisasiController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Pengurus::where('kategori', 'rw');
+        $query = Pengurus::where('kategori', 'organisasi');
+
+        if ($filter = $request->get('filter')) {
+            $query->where('organisasi', $filter);
+        }
         if ($search = $request->get('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('nama', 'like', "%{$search}%")
-                    ->orWhere('jabatan', 'like', "%{$search}%");
+                    ->orWhere('jabatan', 'like', "%{$search}%")
+                    ->orWhere('organisasi', 'like', "%{$search}%");
             });
         }
-        $pengurus = $query->latest()->paginate(10)->withQueryString();
 
-        return view('admin.pengurus.index', compact('pengurus'));
+        $pengurus = $query->orderBy('organisasi')->orderBy('jabatan')->paginate(10)->withQueryString();
+
+        return view('admin.organisasi.index', compact('pengurus'));
     }
 
     public function create()
     {
-        return view('admin.pengurus.create');
+        return view('admin.organisasi.create');
     }
 
     public function store(Request $request)
     {
         $data = $request->validate([
             'nama' => 'required|string|max:255',
+            'organisasi' => 'required|string|max:255',
             'jabatan' => 'required|string|max:255',
             'periode_mulai' => 'required|date',
             'periode_selesai' => 'nullable|date|after:periode_mulai',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
-        $data['kategori'] = 'rw';
+        $data['kategori'] = 'organisasi';
 
         if ($request->hasFile('foto')) {
             $data['foto'] = $request->file('foto')->store('foto-pengurus', 'public');
@@ -48,36 +54,38 @@ class PengurusController extends Controller
 
         $pengurus = Pengurus::create($data);
 
-        $name = $pengurus->nama.' - '.$pengurus->jabatan;
+        $name = $pengurus->nama . ' - ' . $pengurus->jabatan;
         ActivityLog::log('create', $pengurus, $name, null, $pengurus->only([
-            'nama', 'jabatan', 'periode_mulai', 'periode_selesai', 'kategori',
+            'nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai', 'kategori',
         ]));
 
-        return redirect()->route('admin.pengurus.index')->with('success', 'Data pengurus berhasil ditambahkan.');
+        return redirect()->route('admin.organisasi.index')->with('success', 'Data organisasi berhasil ditambahkan.');
     }
 
     public function show(Pengurus $pengurus)
     {
-        return view('admin.pengurus.show', compact('pengurus'));
+        return view('admin.organisasi.show', compact('pengurus'));
     }
 
     public function edit(Pengurus $pengurus)
     {
-        return view('admin.pengurus.edit', compact('pengurus'));
+        return view('admin.organisasi.edit', compact('pengurus'));
     }
 
     public function update(Request $request, Pengurus $pengurus)
     {
         $data = $request->validate([
             'nama' => 'required|string|max:255',
+            'organisasi' => 'required|string|max:255',
             'jabatan' => 'required|string|max:255',
             'periode_mulai' => 'required|date',
             'periode_selesai' => 'nullable|date|after:periode_mulai',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg|max:5120',
         ]);
 
-        $old = $pengurus->only(['nama', 'jabatan', 'periode_mulai', 'periode_selesai']);
-        $oldName = $pengurus->nama.' - '.$pengurus->jabatan;
+        $old = $pengurus->only(['nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai', 'kategori']);
+
+        $data['kategori'] = 'organisasi';
 
         if ($request->hasFile('foto')) {
             if ($pengurus->foto) {
@@ -87,17 +95,17 @@ class PengurusController extends Controller
         }
 
         $pengurus->update($data);
-        $newName = $pengurus->nama.' - '.$pengurus->jabatan;
+        $newName = $pengurus->nama . ' - ' . $pengurus->jabatan;
 
         ActivityLog::log('update', $pengurus, $newName, $old, $pengurus->only(array_keys($data)));
 
-        return redirect()->route('admin.pengurus.index')->with('success', 'Data pengurus berhasil diperbarui.');
+        return redirect()->route('admin.organisasi.index')->with('success', 'Data organisasi berhasil diperbarui.');
     }
 
     public function destroy(Pengurus $pengurus)
     {
-        $old = $pengurus->only(['nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai']);
-        $name = $pengurus->nama.' - '.$pengurus->jabatan;
+        $old = $pengurus->only(['nama', 'rt', 'organisasi', 'jabatan', 'periode_mulai', 'periode_selesai', 'kategori']);
+        $name = $pengurus->nama . ' - ' . $pengurus->jabatan;
 
         if ($pengurus->foto) {
             Storage::disk('public')->delete($pengurus->foto);
@@ -107,6 +115,6 @@ class PengurusController extends Controller
 
         $pengurus->delete();
 
-        return redirect()->route('admin.pengurus.index')->with('success', 'Data pengurus berhasil dihapus.');
+        return redirect()->route('admin.organisasi.index')->with('success', 'Data organisasi berhasil dihapus.');
     }
 }

@@ -17,5 +17,6 @@ class Pengurus extends Model
         'periode_mulai',
         'periode_selesai',
         'foto',
+        'kategori',
     ];
 }

@@ -55,9 +55,9 @@ class PublicPagesTest extends TestCase
 
     public function test_pengurus_rt_page_is_accessible(): void
     {
-        $response = $this->get('/pengurus-rt');
+        $response = $this->get('/jajaran-pengurus-rt');
         $response->assertStatus(200);
-        $response->assertSee('Pengurus RT');
+        $response->assertSee('Jajaran Pengurus &amp; RT', false);
     }
 
     public function test_struktur_rw_page_is_accessible(): void

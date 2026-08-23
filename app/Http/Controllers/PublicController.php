@@ -80,19 +80,27 @@ class PublicController extends Controller
         return view('public.kegiatan-show', compact('kegiatan'));
     }
 
-    public function pengurusRt()
+    public function jajaranPengurusRt()
     {
-        $pengurus = Pengurus::whereNotNull('rt')
+        $seksiList = ['Agama', 'Kamtibmas', 'Humas', 'Lingkungan', 'Pembangunan', 'PKK/Posyandu', 'Pemuda'];
+
+        $seksi = Pengurus::where('kategori', 'seksi')
+            ->whereIn('organisasi', $seksiList)
+            ->orderBy('organisasi')
+            ->get()
+            ->groupBy('organisasi');
+
+        $rt = Pengurus::where('kategori', 'rt')
+            ->where('jabatan', 'Ketua RT')
             ->orderBy('rt')
-            ->orderBy('id')
-            ->get();
+            ->get()
+            ->keyBy('rt');
 
-        $grouped = $pengurus->groupBy('rt')->sortKeys();
+        $allJajaran = Pengurus::whereIn('kategori', ['seksi', 'rt'])->get();
+        $tahunMulai = $allJajaran->whereNotNull('periode_mulai')->min(fn ($p) => Carbon::parse($p->periode_mulai)->format('Y'));
+        $tahunSelesai = $allJajaran->whereNotNull('periode_selesai')->max(fn ($p) => Carbon::parse($p->periode_selesai)->format('Y'));
 
-        $tahunMulai = $pengurus->filter(fn ($p) => $p->periode_mulai)->min(fn ($p) => Carbon::parse($p->periode_mulai)->format('Y'));
-        $tahunSelesai = $pengurus->filter(fn ($p) => $p->periode_selesai)->max(fn ($p) => Carbon::parse($p->periode_selesai)->format('Y'));
-
-        return view('public.pengurus-rt', compact('grouped', 'tahunMulai', 'tahunSelesai'));
+        return view('public.jajaran-pengurus-rt', compact('seksi', 'seksiList', 'rt', 'tahunMulai', 'tahunSelesai'));
     }
 
     public function profil()
@@ -102,30 +110,23 @@ class PublicController extends Controller
 
     public function strukturRw()
     {
-        $urutanPeran = ['Ketua RW', 'Wakil Ketua', 'Sekretaris', 'Bendahara'];
+        $urutanPeran = ['Ketua RW', 'Penasehat', 'Wakil Ketua', 'Sekretaris', 'Bendahara'];
 
-        $pengurusRw = Pengurus::whereNull('rt')
-            ->whereNull('organisasi')
+        $pengurusRw = Pengurus::where('kategori', 'rw')
             ->orderBy('id')
             ->get()
             ->sortBy(fn ($p) => ($key = array_search($p->jabatan, $urutanPeran, true)) === false ? 99 : $key)
             ->values();
 
-        $organisasi = Pengurus::whereNotNull('organisasi')
-            ->orderBy('organisasi')
-            ->orderBy('jabatan')
-            ->get()
-            ->groupBy('organisasi');
-
         $tahunMulai = $pengurusRw->filter(fn ($p) => $p->periode_mulai)->min(fn ($p) => Carbon::parse($p->periode_mulai)->format('Y'));
         $tahunSelesai = $pengurusRw->filter(fn ($p) => $p->periode_selesai)->max(fn ($p) => Carbon::parse($p->periode_selesai)->format('Y'));
 
-        return view('public.struktur-rw', compact('pengurusRw', 'organisasi', 'tahunMulai', 'tahunSelesai'));
+        return view('public.struktur-rw', compact('pengurusRw', 'tahunMulai', 'tahunSelesai'));
     }
 
     public function strukturOrganisasi()
     {
-        $organisasi = Pengurus::whereNotNull('organisasi')
+        $organisasi = Pengurus::where('kategori', 'organisasi')
             ->orderBy('organisasi')
             ->orderBy('jabatan')
             ->get()
@@ -278,7 +279,7 @@ class PublicController extends Controller
             ['loc' => route('home'), 'changefreq' => 'daily', 'priority' => '1.0'],
             ['loc' => route('profil'), 'changefreq' => 'monthly', 'priority' => '0.8'],
             ['loc' => route('struktur-rw'), 'changefreq' => 'monthly', 'priority' => '0.7'],
-            ['loc' => route('pengurus-rt'), 'changefreq' => 'monthly', 'priority' => '0.7'],
+            ['loc' => route('jajaran-pengurus-rt'), 'changefreq' => 'monthly', 'priority' => '0.7'],
             ['loc' => route('pengumuman'), 'changefreq' => 'daily', 'priority' => '0.9'],
             ['loc' => route('kegiatan'), 'changefreq' => 'weekly', 'priority' => '0.8'],
             ['loc' => route('galeri'), 'changefreq' => 'weekly', 'priority' => '0.7'],

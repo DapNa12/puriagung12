@@ -1,20 +1,20 @@
 @extends('layouts.admin')
 
-@section('title', 'Tambah Pengurus RW')
+@section('title', 'Tambah Anggota Organisasi')
 
 @section('content')
 <div class="flex items-center gap-4 mb-6">
-    <a href="{{ route('admin.pengurus.index') }}" class="btn-secondary p-2">
+    <a href="{{ route('admin.organisasi.index') }}" class="btn-secondary p-2">
         <i data-lucide="arrow-left" class="w-5 h-5"></i>
     </a>
     <div>
-        <h1 class="text-2xl font-bold text-slate-900">Tambah Pengurus RW</h1>
-        <p class="text-sm text-slate-500">Tambah pengurus RW baru</p>
+        <h1 class="text-2xl font-bold text-slate-900">Tambah Anggota Organisasi</h1>
+        <p class="text-sm text-slate-500">Tambah anggota organisasi kemasyarakatan baru</p>
     </div>
 </div>
 
 <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 max-w-lg">
-    <form action="{{ route('admin.pengurus.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.organisasi.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-4">
@@ -23,15 +23,27 @@
             @error('nama')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
         </div>
 
-        <div class="mb-4">
-            <label class="block text-sm font-medium text-slate-700 mb-1">Jabatan <span class="text-red-500">*</span></label>
-            <select name="jabatan" class="input-field @error('jabatan') input-error @enderror">
-                <option value="">-- Pilih Jabatan --</option>
-                @foreach(['Ketua RW', 'Penasehat', 'Wakil Ketua', 'Sekretaris', 'Bendahara'] as $op)
-                <option value="{{ $op }}" @selected(old('jabatan')==$op)>{{ $op }}</option>
-                @endforeach
-            </select>
-            @error('jabatan')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
+        <div class="grid grid-cols-2 gap-4 mb-4">
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Organisasi <span class="text-red-500">*</span></label>
+                <select name="organisasi" class="input-field @error('organisasi') input-error @enderror">
+                    <option value="">-- Pilih Organisasi --</option>
+                    @foreach(['DKM', 'KARTAR', 'PKK', 'Posyandu'] as $org)
+                    <option value="{{ $org }}" @selected(old('organisasi')==$org)>{{ $org }}</option>
+                    @endforeach
+                </select>
+                @error('organisasi')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-slate-700 mb-1">Jabatan <span class="text-red-500">*</span></label>
+                <select name="jabatan" class="input-field @error('jabatan') input-error @enderror">
+                    <option value="">-- Pilih Jabatan --</option>
+                    @foreach(['Ketua', 'Wakil Ketua', 'Sekretaris', 'Bendahara', 'Anggota'] as $op)
+                    <option value="{{ $op }}" @selected(old('jabatan')==$op)>{{ $op }}</option>
+                    @endforeach
+                </select>
+                @error('jabatan')<p class="text-red-500 text-xs mt-1">{{ $message }}</p>@enderror
+            </div>
         </div>
 
         <div class="grid grid-cols-2 gap-4 mb-4">
@@ -56,7 +68,7 @@
 
         <div class="flex space-x-3">
             <button type="submit" class="btn-primary px-6">Simpan</button>
-            <a href="{{ route('admin.pengurus.index') }}" class="btn-secondary px-6">Batal</a>
+            <a href="{{ route('admin.organisasi.index') }}" class="btn-secondary px-6">Batal</a>
         </div>
     </form>
 </div>

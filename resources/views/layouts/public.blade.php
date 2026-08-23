@@ -148,7 +148,7 @@
                         <a href="{{ route('home') }}" class="px-4 py-2 text-[15px] font-medium text-slate-700 hover:text-rose-600 hover:bg-slate-50 rounded-lg transition-all {{ request()->routeIs('home') ? 'text-slate-900' : '' }}">Beranda</a>
 
                         <div class="mega-menu">
-                            <button type="button" data-dropdown-toggle aria-expanded="false" aria-haspopup="true" class="px-4 py-2 text-[15px] font-medium text-slate-700 hover:text-rose-600 hover:bg-slate-50 rounded-lg inline-flex items-center gap-1.5 transition-all {{ request()->routeIs('pengurus-rt') || request()->routeIs('profil') || request()->routeIs('struktur-rw') ? 'text-slate-900' : '' }}">
+                            <button type="button" data-dropdown-toggle aria-expanded="false" aria-haspopup="true" class="px-4 py-2 text-[15px] font-medium text-slate-700 hover:text-rose-600 hover:bg-slate-50 rounded-lg inline-flex items-center gap-1.5 transition-all {{ request()->routeIs('jajaran-pengurus-rt') || request()->routeIs('profil') || request()->routeIs('struktur-rw') ? 'text-slate-900' : '' }}">
                                 Tentang Kami
                                 <i data-lucide="chevron-down" class="mega-chevron w-3.5 h-3.5"></i>
                             </button>
@@ -172,12 +172,12 @@
                                             <span class="text-xs text-slate-500">Struktur pengurus RW 12</span>
                                         </span>
                                     </a>
-                                    <a href="{{ route('pengurus-rt') }}" class="mega-row{{ request()->routeIs('pengurus-rt') ? ' bg-white ring-1 ring-rose-200' : '' }}" role="menuitem">
+                                    <a href="{{ route('jajaran-pengurus-rt') }}" class="mega-row{{ request()->routeIs('jajaran-pengurus-rt') ? ' bg-white ring-1 ring-rose-200' : '' }}" role="menuitem">
                                         <span class="mega-icon-wrap">
                                             <i data-lucide="users" class="mega-icon"></i>
                                         </span>
                                         <span class="flex flex-col gap-0.5 text-left">
-                                            <span class="text-sm font-semibold text-slate-900">Pengurus RT</span>
+                                            <span class="text-sm font-semibold text-slate-900">Jajaran Pengurus & RT</span>
                                             <span class="text-xs text-slate-500">Kenali lebih dekat RT anda</span>
                                         </span>
                                     </a>
@@ -312,7 +312,7 @@
                     </a>
 
                     <div class="mobile-submenu">
-                        <button type="button" onclick="toggleMobileSubmenu(this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 transition-colors {{ request()->routeIs('pengurus-rt') || request()->routeIs('profil') || request()->routeIs('struktur-rw') ? 'text-slate-900' : '' }}">
+                        <button type="button" onclick="toggleMobileSubmenu(this)" class="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-[15px] font-medium text-slate-700 hover:bg-slate-50 transition-colors {{ request()->routeIs('jajaran-pengurus-rt') || request()->routeIs('profil') || request()->routeIs('struktur-rw') ? 'text-slate-900' : '' }}">
                             <span>Tentang Kami</span>
                             <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 transition-transform duration-200"></i>
                         </button>
@@ -320,7 +320,7 @@
                             <div class="py-1 pl-4 space-y-0.5">
                                 <a href="{{ route('profil') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('profil') ? 'text-rose-600 bg-rose-50' : '' }}">Profil</a>
                                 <a href="{{ route('struktur-rw') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('struktur-rw') ? 'text-rose-600 bg-rose-50' : '' }}">Struktur RW</a>
-                                <a href="{{ route('pengurus-rt') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('pengurus-rt') ? 'text-rose-600 bg-rose-50' : '' }}">Pengurus RT</a>
+                                <a href="{{ route('jajaran-pengurus-rt') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('jajaran-pengurus-rt') ? 'text-rose-600 bg-rose-50' : '' }}">Jajaran Pengurus & RT</a>
                                 <a href="{{ route('struktur-organisasi') }}" class="block px-3 py-2 rounded-lg text-sm text-slate-600 hover:bg-slate-50 {{ request()->routeIs('struktur-organisasi') ? 'text-rose-600 bg-rose-50' : '' }}">Struktur Organisasi</a>
                             </div>
                         </div>
@@ -420,7 +420,7 @@
                     <ul class="space-y-2.5 text-sm text-slate-500">
                         <li><a href="{{ route('profil') }}" class="hover:text-rose-600 transition-colors">Profil</a></li>
                         <li><a href="{{ route('struktur-rw') }}" class="hover:text-rose-600 transition-colors">Struktur RW</a></li>
-                        <li><a href="{{ route('pengurus-rt') }}" class="hover:text-rose-600 transition-colors">Pengurus RT</a></li>
+                        <li><a href="{{ route('jajaran-pengurus-rt') }}" class="hover:text-rose-600 transition-colors">Jajaran Pengurus & RT</a></li>
                         <li><a href="{{ route('struktur-organisasi') }}" class="hover:text-rose-600 transition-colors">Struktur Organisasi</a></li>
                     </ul>
                 </div>

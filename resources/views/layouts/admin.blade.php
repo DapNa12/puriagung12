@@ -118,8 +118,12 @@ html.sb-collapsed #sidebar .user-actions button { width: 2.75rem; height: 2.75re
                 <span>Statistik</span>
             </a>
             <a href="{{ route('admin.pengurus.index') }}" class="sidebar-link {{ request()->routeIs('admin.pengurus*') ? 'active' : '' }}" data-title="Pengurus RW">
-                <i data-lucide="settings" class="w-5 h-5 flex-shrink-0"></i>
+                <i data-lucide="crown" class="w-5 h-5 flex-shrink-0"></i>
                 <span>Pengurus RW</span>
+            </a>
+            <a href="{{ route('admin.jajaran.index') }}" class="sidebar-link {{ request()->routeIs('admin.jajaran*') ? 'active' : '' }}" data-title="Jajaran & RT">
+                <i data-lucide="users" class="w-5 h-5 flex-shrink-0"></i>
+                <span>Jajaran & RT</span>
             </a>
             <a href="{{ route('admin.organisasi.index') }}" class="sidebar-link {{ request()->routeIs('admin.organisasi*') ? 'active' : '' }}" data-title="Organisasi">
                 <i data-lucide="building" class="w-5 h-5 flex-shrink-0"></i>
