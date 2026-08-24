@@ -2,6 +2,7 @@
 
 @section('title', $album->judul . ' - Galeri')
 @section('meta_description', $album->deskripsi ?: 'Galeri foto: ' . $album->judul . ' - Puri Agung Permai RW12.')
+@section('meta_keywords', strtolower($album->judul).', puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, galeri foto rw 12')
 @section('og_title', $album->judul . ' - Galeri Puri Agung Permai RW12')
 @section('og_description', $album->deskripsi ?: 'Galeri foto: ' . $album->judul)
 @if($album->sampul)

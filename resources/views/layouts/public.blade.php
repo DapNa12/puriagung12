@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="google-site-verification" content="wUc9FkftNCH8q5WMoF_qz-iO6WRMCHleKl0PAicKJ_8">
-    <link rel="icon" href="{{ asset('images/hero/logo_puri.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+    <link rel="manifest" href="{{ asset('site.webmanifest') }}">
     <title>@yield('title', 'Puri Agung Permai RW12') - Puri Agung Permai RW12</title>
     <meta name="description" content="@yield('meta_description', 'Portal resmi Puri Agung Permai RW12, Kelurahan Gelam Jaya, Kecamatan Pasar Kemis, Kabupaten Tangerang. Informasi berita, pengumuman, kegiatan, dan layanan warga.')">
     <meta name="keywords" content="@yield('meta_keywords', 'RW12, Puri Agung Permai, Pasar Kemis, Tangerang, portal warga, berita lingkungan')">
+    @if(request()->routeIs('search'))
+    <meta name="robots" content="noindex, follow">
+    @endif
     <meta property="og:title" content="@yield('og_title', 'Puri Agung Permai RW12')">
     <meta property="og:description" content="@yield('og_description', 'Portal resmi Puri Agung Permai RW12. Informasi berita, pengumuman, kegiatan, dan layanan warga.')">
     <meta property="og:type" content="website">

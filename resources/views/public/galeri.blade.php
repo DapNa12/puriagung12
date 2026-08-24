@@ -2,6 +2,7 @@
 
 @section('title', 'Galeri')
 @section('meta_description', 'Galeri foto kegiatan dan momen-momen di lingkungan Puri Agung Permai RW12.')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, galeri foto warga, dokumentasi kegiatan rw 12')
 @section('og_title', 'Galeri - Puri Agung Permai RW12')
 @section('og_description', 'Galeri foto kegiatan dan momen-momen di lingkungan Puri Agung Permai RW12.')
 

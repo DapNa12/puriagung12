@@ -2,6 +2,7 @@
 
 @section('title', 'Beranda')
 @section('meta_description', 'Portal resmi Puri Agung Permai RW12, Kelurahan Gelam Jaya, Kecamatan Pasar Kemis, Kabupaten Tangerang. Informasi berita, pengumuman, kegiatan, dan layanan warga.')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, portal warga rw 12, website warga, informasi lingkungan')
 @section('og_title', 'Puri Agung Permai RW12 - Beranda')
 @section('og_description', 'Portal resmi Puri Agung Permai RW12. Informasi berita, pengumuman, kegiatan, dan layanan warga.')
 

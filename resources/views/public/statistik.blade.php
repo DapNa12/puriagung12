@@ -2,6 +2,7 @@
 
 @section('title', 'Statistik Kependudukan')
 @section('meta_description', 'Data statistik kependudukan Puri Agung Permai RW12. Jumlah warga, RT, dan data demografis lainnya.')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, data penduduk rw 12, jumlah warga, statistik kependudukan')
 @section('og_title', 'Statistik Kependudukan - Puri Agung Permai RW12')
 @section('og_description', 'Data statistik kependudukan Puri Agung Permai RW12.')
 

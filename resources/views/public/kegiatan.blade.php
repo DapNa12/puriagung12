@@ -2,6 +2,7 @@
 
 @section('title', 'Kegiatan')
 @section('meta_description', 'Agenda dan kegiatan di lingkungan Puri Agung Permai RW12. Informasi acara dan agenda warga.')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, agenda kegiatan warga, acara rw 12, kegiatan lingkungan')
 @section('og_title', 'Kegiatan - Puri Agung Permai RW12')
 @section('og_description', 'Agenda dan kegiatan di lingkungan Puri Agung Permai RW12.')
 

@@ -2,6 +2,7 @@
 
 @section('title', 'Struktur RW')
 @section('meta_description', 'Struktur kepengurusan RW 12 Puri Agung Permai. Daftar pengurus RW dan tugas masing-masing.')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, pengurus rw 12, ketua rw 12, struktur kepengurusan rw')
 @section('og_title', 'Struktur RW - Puri Agung Permai RW12')
 @section('og_description', 'Struktur kepengurusan RW 12 Puri Agung Permai.')
 

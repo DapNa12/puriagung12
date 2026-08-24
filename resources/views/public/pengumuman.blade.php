@@ -2,6 +2,7 @@
 
 @section('title', 'Berita dan Pengumuman')
 @section('meta_description', 'Berita dan pengumuman terkini dari Puri Agung Permai RW12. Informasi penting seputar lingkungan warga.')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, pengumuman rw 12, berita warga, info lingkungan')
 @section('og_title', 'Berita dan Pengumuman - Puri Agung Permai RW12')
 @section('og_description', 'Berita dan pengumuman terkini dari Puri Agung Permai RW12.')
 

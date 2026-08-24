@@ -2,6 +2,7 @@
 
 @section('title', $pengumuman->judul)
 @section('meta_description', strip_tags(Str::limit($pengumuman->isi, 160)))
+@section('meta_keywords', strtolower($pengumuman->judul).', puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, pengumuman rw 12, berita warga')
 @section('og_title', $pengumuman->judul . ' - Puri Agung Permai RW12')
 @section('og_description', strip_tags(Str::limit($pengumuman->isi, 160)))
 @if($pengumuman->foto)

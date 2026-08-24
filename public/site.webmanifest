@@ -1,0 +1,21 @@
+{
+    "name": "Puri Agung Permai RW 12",
+    "short_name": "RW 12",
+    "description": "Portal resmi Puri Agung Permai RW 12, Kelurahan Gelam Jaya, Kecamatan Pasar Kemis, Kabupaten Tangerang.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#E11D48",
+    "icons": [
+        {
+            "src": "/favicon-32x32.png",
+            "sizes": "32x32",
+            "type": "image/png"
+        },
+        {
+            "src": "/apple-touch-icon.png",
+            "sizes": "180x180",
+            "type": "image/png"
+        }
+    ]
+}
