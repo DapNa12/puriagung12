@@ -59,7 +59,7 @@
                 </div>
                 <div class="sm:col-span-2">
                     <dt class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Deskripsi</dt>
-                    <dd class="text-sm text-slate-700 mt-1 leading-relaxed">{{ $umkm->deskripsi }}</dd>
+                    <dd class="text-sm text-slate-700 mt-1 leading-relaxed whitespace-pre-line break-words [overflow-wrap:anywhere]">{{ $umkm->deskripsi }}</dd>
                 </div>
                 @if($umkm->maps_link)
                 <div class="sm:col-span-2">

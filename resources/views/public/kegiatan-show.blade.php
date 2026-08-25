@@ -60,7 +60,7 @@
                 @endif
             </div>
             @if($kegiatan->deskripsi)
-            <div class="text-slate-700 leading-relaxed">
+            <div class="text-slate-700 leading-relaxed whitespace-pre-line break-words [overflow-wrap:anywhere]">
                 {{ $kegiatan->deskripsi }}
             </div>
             @endif

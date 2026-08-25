@@ -31,7 +31,7 @@
                         {{ $item->status === 'akan_datang' ? 'Akan Datang' : ucfirst($item->status) }}
                     </span>
                 </div>
-                <h3 class="font-bold text-slate-900 mb-2">{{ $item->nama_kegiatan }}</h3>
+                <h3 class="font-bold text-slate-900 mb-2 break-words">{{ $item->nama_kegiatan }}</h3>
                 <div class="space-y-1.5 text-sm text-slate-500">
                     <div class="flex items-center gap-2">
                         <i data-lucide="calendar" class="w-4 h-4 flex-shrink-0"></i>

@@ -58,7 +58,7 @@
                         @endif
                     </div>
 
-                    <div class="prose prose-slate max-w-none">
+                    <div class="break-words [overflow-wrap:anywhere]">
                         {!! nl2br(e($umkm->deskripsi)) !!}
                     </div>
                 </div>

@@ -54,7 +54,7 @@
             <div class="p-5">
                 <h2 class="font-bold text-slate-900 mb-1 group-hover:text-rose-600 transition-colors">{{ $item->nama }}</h2>
                 <p class="text-xs text-slate-500 mb-2">Pemilik: {{ $item->nama_pemilik }}</p>
-                <p class="text-sm text-slate-600 line-clamp-2">{{ Str::limit($item->deskripsi, 100) }}</p>
+                <p class="text-sm text-slate-600 line-clamp-2 break-words">{{ Str::limit($item->deskripsi, 100) }}</p>
                 <div class="flex items-center gap-3 mt-3 text-xs text-slate-400">
                     @if($item->jam_operasional)
                     <span class="flex items-center gap-1">

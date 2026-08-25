@@ -34,6 +34,6 @@
         <span>{{ $pengumuman->created_at->isoFormat('D MMMM Y') }}</span>
     </div>
     <h2 class="text-xl font-bold text-slate-900 mb-4">{{ $pengumuman->judul }}</h2>
-    <div class="text-slate-700 leading-relaxed text-sm">{{ $pengumuman->isi }}</div>
+    <div class="text-slate-700 leading-relaxed text-sm whitespace-pre-line break-words [overflow-wrap:anywhere]">{{ $pengumuman->isi }}</div>
 </div>
 @endsection

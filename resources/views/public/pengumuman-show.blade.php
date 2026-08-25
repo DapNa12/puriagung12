@@ -31,7 +31,7 @@
         </div>
         @endif
         <h1 class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 leading-tight">{{ $pengumuman->judul }}</h1>
-        <div class="prose prose-gray max-w-none text-slate-700 leading-relaxed">
+        <div class="text-slate-700 leading-relaxed whitespace-pre-line break-words [overflow-wrap:anywhere]">
             {{ $pengumuman->isi }}
         </div>
     </article>

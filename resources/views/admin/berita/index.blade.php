@@ -156,7 +156,7 @@
             </span>
             @endif
         </div>
-        <p class="text-xs text-slate-500 line-clamp-2 mb-3">{{ strip_tags($b['konten']) }}</p>
+        <p class="text-xs text-slate-500 line-clamp-2 mb-3 break-words">{{ strip_tags($b['konten']) }}</p>
         <div class="flex items-center gap-1.5 pt-2 border-t border-slate-100">
             @if($b['tipe'] === 'pengumuman')
             <a href="{{ route('admin.pengumuman.show', $b['id']) }}" class="btn-soft-blue">Detail</a>

@@ -86,11 +86,11 @@
                         </span>
                     </div>
 
-                    <h2 class="text-xl font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-2 leading-snug mb-3">
+                    <h2 class="text-xl font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-2 leading-snug mb-3 break-words">
                         <a href="{{ route('pengumuman.show', $item) }}">{{ $item->judul }}</a>
                     </h2>
 
-                    <p class="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4">
+                    <p class="text-slate-600 text-sm leading-relaxed line-clamp-3 mb-4 break-words">
                         {{ Str::limit(strip_tags($item->isi), 140) }}
                     </p>
                 </div>

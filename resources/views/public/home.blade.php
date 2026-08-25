@@ -103,8 +103,8 @@
                         <span>&bull;</span>
                         <span>Puri Agung</span>
                     </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-rose-700 transition-colors line-clamp-2">{{ $item->judul }}</h3>
-                    <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">{{ Str::limit($item->isi, 120) }}</p>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3 group-hover:text-rose-700 transition-colors line-clamp-2 break-words">{{ $item->judul }}</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-1 line-clamp-3 break-words">{{ Str::limit($item->isi, 120) }}</p>
                     <div class="flex items-center text-rose-600 font-medium text-sm mt-auto group-hover:translate-x-1 transition-transform">
                         Baca detail <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
                     </div>
@@ -156,7 +156,7 @@
                         @if($item->tempat)
                         <div class="flex items-center gap-2">
                             <i data-lucide="map-pin" class="w-4 h-4 text-slate-400"></i>
-                            <span class="line-clamp-1">{{ $item->tempat }}</span>
+                            <span class="line-clamp-1 break-words">{{ $item->tempat }}</span>
                         </div>
                         @endif
                     </div>

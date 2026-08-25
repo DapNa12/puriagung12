@@ -51,7 +51,7 @@
             @endif
         </div>
         @if($kegiatan->deskripsi)
-        <div class="mt-5 pt-4 border-t border-slate-100 text-slate-700 text-sm leading-relaxed">{{ $kegiatan->deskripsi }}</div>
+        <div class="mt-5 pt-4 border-t border-slate-100 text-slate-700 text-sm leading-relaxed whitespace-pre-line break-words [overflow-wrap:anywhere]">{{ $kegiatan->deskripsi }}</div>
         @endif
     </div>
 </div>

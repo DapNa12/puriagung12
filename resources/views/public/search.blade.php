@@ -49,8 +49,8 @@
                     </div>
                     @endif
                     <div class="flex-1 min-w-0">
-                        <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1">{{ $item->judul }}</h3>
-                        <p class="text-sm text-slate-500 mt-1 line-clamp-2">{{ Str::limit(strip_tags($item->isi), 120) }}</p>
+                        <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1 break-words">{{ $item->judul }}</h3>
+                        <p class="text-sm text-slate-500 mt-1 line-clamp-2 break-words">{{ Str::limit(strip_tags($item->isi), 120) }}</p>
                         <span class="text-xs text-slate-400 mt-2 inline-block">{{ $item->created_at->isoFormat('D MMMM Y') }}</span>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     @endif
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2 mb-1">
-                            <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1">{{ $item->nama_kegiatan }}</h3>
+                            <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1 break-words">{{ $item->nama_kegiatan }}</h3>
                             <span class="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full
                                 {{ $item->status === 'akan_datang' ? 'bg-blue-50 text-blue-700' : 'bg-emerald-50 text-emerald-700' }}">
                                 {{ $item->status === 'akan_datang' ? 'Akan Datang' : ucfirst($item->status) }}
@@ -119,7 +119,7 @@
                     <span class="absolute top-2 right-2 bg-black/60 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">{{ $item->fotos_count }} foto</span>
                 </div>
                 <div class="p-4">
-                    <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1">{{ $item->judul }}</h3>
+                    <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1 break-words">{{ $item->judul }}</h3>
                 </div>
             </a>
             @endforeach
@@ -147,13 +147,13 @@
                     @endif
                     <div class="flex-1 min-w-0">
                         <div class="flex items-center gap-2 mb-1">
-                            <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1">{{ $item->nama }}</h3>
+                            <h3 class="font-bold text-slate-900 group-hover:text-rose-600 transition-colors line-clamp-1 break-words">{{ $item->nama }}</h3>
                             <span class="inline-flex items-center gap-1 text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-50 text-purple-700">
                                 {{ $item->kategori }}
                             </span>
                         </div>
-                        <p class="text-sm text-slate-500 line-clamp-1">{{ $item->nama_pemilik }} · RT {{ $item->rt }}</p>
-                        <p class="text-xs text-slate-400 mt-1 line-clamp-1">{{ Str::limit($item->deskripsi, 100) }}</p>
+                        <p class="text-sm text-slate-500 line-clamp-1 break-words">{{ $item->nama_pemilik }} · RT {{ $item->rt }}</p>
+                        <p class="text-xs text-slate-400 mt-1 line-clamp-1 break-words">{{ Str::limit($item->deskripsi, 100) }}</p>
                     </div>
                 </div>
             </a>

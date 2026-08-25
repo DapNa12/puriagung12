@@ -26,7 +26,7 @@
             {{ $album->fotos->count() }} foto
         </p>
         @if($album->deskripsi)
-        <p class="text-slate-600 mt-4 max-w-3xl leading-relaxed">{{ $album->deskripsi }}</p>
+        <p class="text-slate-600 mt-4 max-w-3xl leading-relaxed whitespace-pre-line break-words [overflow-wrap:anywhere]">{{ $album->deskripsi }}</p>
         @endif
     </div>
 
