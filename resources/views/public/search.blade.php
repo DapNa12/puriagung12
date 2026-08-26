@@ -2,7 +2,7 @@
 
 @section('title', 'Pencarian')
 @section('meta_description', 'Cari informasi seputar Puri Agung Permai RW12. Temukan berita, kegiatan, dan galeri.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis')
 
 @section('content')
 <div class="max-w-7xl mx-auto px-4 py-12">

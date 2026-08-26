@@ -2,7 +2,7 @@
 
 @section('title', 'Kebersihan Lingkungan')
 @section('meta_description', 'Perangkat kebersihan lingkungan RW 12 Puri Agung Permai. Informasi kebersihan warga.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, kebersihan lingkungan rw 12, kerja bakti warga')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, kebersihan lingkungan rw 12, kerja bakti warga')
 @section('og_title', 'Kebersihan Lingkungan - Puri Agung Permai RW12')
 @section('og_description', 'Perangkat kebersihan lingkungan RW 12 Puri Agung Permai.')
 

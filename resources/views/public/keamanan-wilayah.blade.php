@@ -2,7 +2,7 @@
 
 @section('title', 'Keamanan Wilayah')
 @section('meta_description', 'Perangkat pengamanan wilayah RW 12 Puri Agung Permai. Informasi keamanan lingkungan.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, keamanan lingkungan rw 12, linmas, ronda warga')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, keamanan lingkungan rw 12, linmas, ronda warga')
 @section('og_title', 'Keamanan Wilayah - Puri Agung Permai RW12')
 @section('og_description', 'Perangkat pengamanan wilayah RW 12 Puri Agung Permai.')
 

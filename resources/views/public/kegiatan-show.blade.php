@@ -2,7 +2,7 @@
 
 @section('title', $kegiatan->nama_kegiatan)
 @section('meta_description', $kegiatan->deskripsi ?: $kegiatan->nama_kegiatan . ' - Kegiatan di Puri Agung Permai RW12.')
-@section('meta_keywords', strtolower($kegiatan->nama_kegiatan).', puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, kegiatan warga rw 12, agenda rw 12')
+@section('meta_keywords', strtolower($kegiatan->nama_kegiatan).', puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, kegiatan warga rw 12, agenda rw 12')
 @section('og_title', $kegiatan->nama_kegiatan . ' - Puri Agung Permai RW12')
 @section('og_description', $kegiatan->deskripsi ?: $kegiatan->nama_kegiatan)
 @if($kegiatan->foto)

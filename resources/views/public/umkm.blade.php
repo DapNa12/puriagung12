@@ -2,7 +2,7 @@
 
 @section('title', 'UMKM Warga')
 @section('meta_description', 'Daftar Usaha Mikro Kecil dan Menengah (UMKM) warga Puri Agung Permai RW12. Temukan usaha lokal di lingkungan Anda.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, umkm pasar kemis, usaha warga tangerang, jasa lokal, kuliner puri agung permai')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, umkm pasar kemis, usaha warga tangerang, jasa lokal, kuliner puri agung permai, umkm gelam jaya, usaha kecil tangerang')
 @section('og_title', 'UMKM Warga - Puri Agung Permai RW12')
 @section('og_description', 'Daftar UMKM warga Puri Agung Permai RW12. Dukung usaha lokal lingkungan Anda.')
 

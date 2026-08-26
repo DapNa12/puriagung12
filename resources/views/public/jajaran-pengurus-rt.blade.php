@@ -2,7 +2,7 @@
 
 @section('title', 'Jajaran Pengurus & RT')
 @section('meta_description', 'Jajaran pengurus seksi dan ketua RT di Puri Agung Permai RW12.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, ketua rt puri agung permai, seksi pengurus rw 12, daftar ketua rt')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, ketua rt puri agung permai, seksi pengurus rw 12, daftar ketua rt')
 @section('og_title', 'Jajaran Pengurus & RT - Puri Agung Permai RW12')
 @section('og_description', 'Jajaran pengurus seksi dan ketua RT di lingkungan RW 12 Puri Agung Permai.')
 

@@ -2,7 +2,7 @@
 
 @section('title', 'Struktur Organisasi')
 @section('meta_description', 'Struktur organisasi kemasyarakatan DKM, KARTAR, PKK, dan Posyandu di Puri Agung Permai RW12.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, dkm rw 12, kartar, pkk, posyandu puri agung permai')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, dkm rw 12, kartar, pkk, posyandu puri agung permai')
 @section('og_title', 'Struktur Organisasi - Puri Agung Permai RW12')
 @section('og_description', 'Struktur organisasi kemasyarakatan di lingkungan RW 12 Puri Agung Permai.')
 

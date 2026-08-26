@@ -2,7 +2,7 @@
 
 @section('title', 'Profil')
 @section('meta_description', 'Profil Puri Agung Permai RW12 - Letak geografis, visi dan misi lingkungan di Kelurahan Gelam Jaya, Pasar Kemis, Tangerang.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, sejarah puri agung permai, visi misi rw 12, profil rw 12')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, sejarah puri agung permai, visi misi rw 12, profil rw 12')
 @section('og_title', 'Profil - Puri Agung Permai RW12')
 @section('og_description', 'Profil Puri Agung Permai RW12 - Letak geografis, visi dan misi lingkungan.')
 

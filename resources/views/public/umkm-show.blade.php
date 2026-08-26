@@ -2,7 +2,7 @@
 
 @section('title', $umkm->nama . ' - UMKM')
 @section('meta_description', $umkm->deskripsi ? Str::limit(strip_tags($umkm->deskripsi), 160) : 'UMKM ' . $umkm->nama . ' di Puri Agung Permai RW12.')
-@section('meta_keywords', strtolower($umkm->nama).', puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, umkm tangerang, usaha warga')
+@section('meta_keywords', strtolower($umkm->nama).', puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, umkm tangerang, usaha warga, umkm gelam jaya, usaha kecil tangerang')
 @section('og_title', $umkm->nama . ' - UMKM RW12')
 @section('og_description', $umkm->deskripsi ? Str::limit(strip_tags($umkm->deskripsi), 160) : 'UMKM ' . $umkm->nama)
 

@@ -2,7 +2,7 @@
 
 @section('title', 'Administrasi Kependudukan')
 @section('meta_description', 'Layanan administrasi kependudukan di Puri Agung Permai RW12. Surat pengantar dan layanan warga lainnya.')
-@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, surat pengantar rt rw 12, layanan administrasi warga')
+@section('meta_keywords', 'puri agung permai, puri agung 12, rw 12 puri agung permai, pasar kemis, gelam jaya, kabupaten tangerang, rw 12 tangerang, website rw tangerang, perumahan puri agung permai, puri agung permai pasar kemis, surat pengantar rt rw 12, layanan administrasi warga')
 @section('og_title', 'Administrasi Kependudukan - Puri Agung Permai RW12')
 @section('og_description', 'Layanan administrasi kependudukan di Puri Agung Permai RW12.')
 
