@@ -17,7 +17,7 @@ use App\Http\Controllers\PublicController;
 use App\Http\Middleware\PreventAbuse;
 use Illuminate\Support\Facades\Route;
 
-Route::resourceParameters(['pengurus' => 'pengurus', 'galeri' => 'album']);
+Route::resourceParameters(['pengurus' => 'pengurus', 'galeri' => 'album', 'organisasi' => 'pengurus', 'jajaran' => 'pengurus']);
 
 Route::get('/', [PublicController::class, 'index'])->name('home');
 
