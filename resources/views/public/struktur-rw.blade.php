@@ -48,10 +48,35 @@
         @endforeach
     </div>
 
-    <!-- Desktop: Grid cards -->
-    <div class="hidden md:grid grid-cols-2 lg:grid-cols-4 gap-6">
-        @foreach($pengurusRw as $p)
-        <div class="rw-card p-6 text-center">
+    {{-- Desktop: Ketua RW centered --}}
+    @php
+    $ketuaRW = $pengurusRw->firstWhere('jabatan', 'Ketua RW');
+    $otherPengurus = $pengurusRw->where('jabatan', '!=', 'Ketua RW');
+    @endphp
+    @if($ketuaRW)
+    <div class="hidden md:flex justify-center">
+        <div class="rw-card p-6 text-center max-w-xs">
+            @if($ketuaRW->foto)
+            <img src="{{ asset('storage/'.$ketuaRW->foto) }}" class="w-28 h-28 object-cover rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
+            @else
+            <div class="w-28 h-28 bg-rose-100 rounded-full mx-auto mb-4 flex items-center justify-center border-4 border-white shadow-inner">
+                <span class="text-3xl font-bold text-rose-700">{{ substr($ketuaRW->nama ?? '?', 0, 1) }}</span>
+            </div>
+            @endif
+            <h3 class="text-lg font-bold text-slate-900">{{ $ketuaRW->nama ?? '-' }}</h3>
+            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-rose-50 text-rose-700 text-xs font-semibold mt-2">{{ $ketuaRW->jabatan }}</span>
+            @if($ketuaRW->periode_mulai)
+            <p class="text-xs text-slate-400 mt-2">{{ \Carbon\Carbon::parse($ketuaRW->periode_mulai)->format('Y') }} - {{ $ketuaRW->periode_selesai ? \Carbon\Carbon::parse($ketuaRW->periode_selesai)->format('Y') : 'Sekarang' }}</p>
+            @endif
+        </div>
+    </div>
+    @endif
+
+    {{-- Desktop: Grid pengurus lainnya --}}
+    @if($otherPengurus->isNotEmpty())
+    <div class="hidden md:flex flex-wrap justify-center gap-6 mt-10 mb-2">
+        @foreach($otherPengurus as $p)
+        <div class="rw-card p-6 text-center shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(25%-18px)]">
             @if($p->foto)
             <img src="{{ asset('storage/'.$p->foto) }}" class="w-24 h-24 object-cover rounded-full mx-auto mb-4 border-4 border-white shadow-lg">
             @else
@@ -67,6 +92,7 @@
         </div>
         @endforeach
     </div>
+    @endif
     @endif
 </div>
 @endsection

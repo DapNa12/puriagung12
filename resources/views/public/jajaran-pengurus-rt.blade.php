@@ -77,10 +77,10 @@
         </div>
 
         {{-- Desktop: Grid boxes --}}
-        <div class="hidden md:grid grid-cols-3 gap-4 max-w-5xl mx-auto">
+        <div class="hidden md:flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
             @foreach($seksiList as $namaSeksi)
             @php $anggota = $seksi->get($namaSeksi); $w = $seksiColors[$namaSeksi] ?? ['bg' => 'from-slate-100 to-slate-50', 'text' => 'text-slate-700', 'badge' => 'bg-slate-600', 'initial' => 'from-slate-200 to-slate-100']; @endphp
-            <div class="bg-white rounded-xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div class="bg-white rounded-xl border border-slate-200 p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 shrink-0 w-full md:w-[calc(33.333%-11px)]">
                 <span class="px-3 py-1 rounded-full {{ $w['badge'] }} text-white text-xs font-bold mb-4 inline-block">{{ $namaSeksi }}</span>
                 <div class="space-y-3">
                     @if($anggota)
